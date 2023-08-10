@@ -36,7 +36,7 @@ return {
     ["K"] = { "5gk", desc = "quick move up" },
     ["H"] = { "^", desc = "move the cursor to start of the line" },
     ["L"] = { "$", desc = "move the cursor to end of the line" },
-    ["Q"] = { ":wq<cr>", desc = "save and close the file" },
+    ["Q"] = { ":q<cr>", desc = "save and close the file" },
   },
   t = {
     -- setting a mapping to false will disable it
