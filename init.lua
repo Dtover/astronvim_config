@@ -111,6 +111,7 @@ return {
 
     if vim.g.neovide then
       vim.o.guifont="ComicShannsMono Nerd Font"
+      -- vim.o.guifont="DejaVuSansM Nerd Font"
       vim.g.neovide_transparency = 0.98
       vim.g.transparency = 0.98
       vim.g.neovide_backgroud_color = "#0f1117" .. alpha()
@@ -128,15 +129,4 @@ return {
       vim.g.neovide_cursor_vfx_opacity = 100
     end
   end,
-
-  -- termtoggle
-  powershell_options = {
-    shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
-    shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-    shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-    shellquote = "",
-    shellxquote = "",
-  },
-
 }

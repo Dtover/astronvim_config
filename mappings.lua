@@ -30,19 +30,24 @@ return {
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    -- movement
     ["J"] = { "5gj", desc = "quick move down" },
     ["K"] = { "5gk", desc = "quick move up" },
     ["H"] = { "^", desc = "move the cursor to start of the line" },
     ["L"] = { "$", desc = "move the cursor to end of the line" },
-    ["Q"] = { ":q<cr>", desc = "save and close the file" },
-    ["<up>"] = {":res -3<cr>", desc = "resize windows"},
-    ["<down>"] = {":res +3<cr>", desc = "resize windows"},
+
+    -- ["Q"] = { ":bd<cr>", desc = "colse the current buffer" },
+    ["Q"] = {
+      function ()
+        require("astronvim.utils.buffer").close()
+      end,
+      desc = "close current buffer"
+    }
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
-    ["K"] = false
   },
   v = {
     ["J"] = { "5gj", desc = "quick move down" },
