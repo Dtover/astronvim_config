@@ -7,16 +7,13 @@ return {
   -- first key is the mode
   n = {
     -- second key is the lefthand side of the map
+    ["<leader>r"] = {":MarkdownPreview<cr>", desc = "run markdown-preview"},
 
-    -- navigate buffer tabs with `H` and `L`
-    -- L = {
-    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    --   desc = "Next buffer",
-    -- },
-    -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
+    -- cd to nvim config directory
+    ["<leader>A"] = {":cd C:\\Users\\Mycroft\\AppData\\Local\\nvim<cr>", desc = "change to nvim config file"},
+    ["<leader>a"] = {":cd C:\\Users\\Mycroft\\AppData\\Local\\nvim\\lua\\user<cr>", desc = "change to nvim config file"},
+
+    ["<leader><enter>"] = {":nohlsearch<cr>", desc = "set no hightlight search"},
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -31,19 +28,32 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
     -- movement
     ["J"] = { "5gj", desc = "quick move down" },
     ["K"] = { "5gk", desc = "quick move up" },
     ["H"] = { "^", desc = "move the cursor to start of the line" },
     ["L"] = { "$", desc = "move the cursor to end of the line" },
 
-    -- ["Q"] = { ":bd<cr>", desc = "colse the current buffer" },
+    -- buffer operation
     ["Q"] = {
       function ()
         require("astronvim.utils.buffer").close()
       end,
       desc = "close current buffer"
-    }
+    },
+    -- switch buffer
+    ["tl"] = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    ["th"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
+
+    -- something else
+
   },
   t = {
     -- setting a mapping to false will disable it
