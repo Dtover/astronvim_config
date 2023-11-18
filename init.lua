@@ -81,7 +81,12 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    --
+
+    -- set lazyredraw to some file type
+    if vim.filetype == 'ass' then
+      vim.opt.lazyredraw = true;
+    end
+    
     -- neovide for neovide
     local function set_ime(args)
       if args.event:match("Enter$") then
@@ -90,6 +95,7 @@ return {
           vim.g.neovide_input_ime = false
       end
     end
+
 
     local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = false})
 
@@ -110,7 +116,7 @@ return {
     end
 
     if vim.g.neovide then
-      vim.o.guifont="ComicShannsMono Nerd Font"
+      vim.o.guifont="ComicShannsMono Nerd Font:h14,YouYuan:h14"
       -- vim.o.guifont="DejaVuSansM Nerd Font"
       vim.g.neovide_transparency = 0.98
       vim.g.transparency = 0.98
