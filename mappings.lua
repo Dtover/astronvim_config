@@ -34,6 +34,8 @@ return {
     ["K"] = { "5gk", desc = "quick move up" },
     ["H"] = { "^", desc = "move the cursor to start of the line" },
     ["L"] = { "$", desc = "move the cursor to end of the line" },
+    ["gw"] = {"*", desc = "map to *"},
+    ["gW"] = {"#", desc = "map to #"},
 
     -- buffer operation
     ["Q"] = {
@@ -53,7 +55,6 @@ return {
     },
 
     -- something else
-
   },
   t = {
     -- setting a mapping to false will disable it
