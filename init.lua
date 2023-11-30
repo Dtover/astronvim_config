@@ -86,8 +86,13 @@ return {
     if vim.filetype == 'ass' then
       vim.opt.lazyredraw = true;
     end
-    
-    -- neovide for neovide
+
+    -- md-img-paste
+    vim.g.mdip_imgdir = 'images'
+
+    -- config for neovide
+    local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = false})
+
     local function set_ime(args)
       if args.event:match("Enter$") then
           vim.g.neovide_input_ime = true
@@ -95,9 +100,6 @@ return {
           vim.g.neovide_input_ime = false
       end
     end
-
-
-    local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = false})
 
     vim.api.nvim_create_autocmd({ "InsertLeave", "InsertEnter" }, {
         group = ime_input,

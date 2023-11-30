@@ -9,14 +9,21 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  ---- markdown-preview
+
+  -- markdown
   {
     "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
+    ft = "markdown",
+    build = function()
+      vim.fn["mkdp#util#install"]()
     end,
+  },
+  {
+	  "dhruvasagar/vim-table-mode",
     ft = { "markdown" },
+  },
+  {
+    "ferrine/md-img-paste.vim",
+    ft = "markdown",
   },
 }

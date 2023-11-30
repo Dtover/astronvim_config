@@ -39,7 +39,7 @@ return {
 
     -- buffer operation
     ["Q"] = {
-      function ()
+      function()
         require("astronvim.utils.buffer").close()
       end,
       desc = "close current buffer"
