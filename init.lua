@@ -83,42 +83,38 @@ return {
     -- }
 
     -- set lazyredraw to some file type
-    if vim.filetype == 'ass' then
-      vim.opt.lazyredraw = true;
-    end
+    if vim.filetype == "ass" then vim.opt.lazyredraw = true end
 
     -- md-img-paste
-    vim.g.mdip_imgdir = 'images'
+    vim.g.mdip_imgdir = "images"
 
     -- config for neovide
-    local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = false})
+    local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = false })
 
     local function set_ime(args)
-      if args.event:match("Enter$") then
-          vim.g.neovide_input_ime = true
+      if args.event:match "Enter$" then
+        vim.g.neovide_input_ime = true
       else
-          vim.g.neovide_input_ime = false
+        vim.g.neovide_input_ime = false
       end
     end
 
     vim.api.nvim_create_autocmd({ "InsertLeave", "InsertEnter" }, {
-        group = ime_input,
-        pattern = "*",
-        callback = set_ime
+      group = ime_input,
+      pattern = "*",
+      callback = set_ime,
     })
 
     vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
-        group = ime_input,
-        pattern = "[/\\?]",
-        callback = set_ime
+      group = ime_input,
+      pattern = "[/\\?]",
+      callback = set_ime,
     })
 
-    local function alpha()
-      return string.format("%x", math.floor(255 * (vim.g.transparency or 0.8)))
-    end
+    local function alpha() return string.format("%x", math.floor(255 * (vim.g.transparency or 0.8))) end
 
     if vim.g.neovide then
-      vim.o.guifont="ComicShannsMono Nerd Font:h14,YouYuan:h14"
+      vim.o.guifont = "ComicShannsMono Nerd Font:h14,YouYuan:h14"
       -- vim.o.guifont="DejaVuSansM Nerd Font"
       vim.g.neovide_transparency = 0.98
       vim.g.transparency = 0.98
