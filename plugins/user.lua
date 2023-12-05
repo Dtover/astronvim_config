@@ -23,7 +23,7 @@ return {
     ft = { "markdown" },
   },
   {
-    "ferrine/md-img-paste.vim",
+    "Dtover/hexo-img-paste.vim",
     ft = "markdown",
   },
 }

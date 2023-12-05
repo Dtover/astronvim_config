@@ -10,8 +10,8 @@ return {
     ["<leader>r"] = {":MarkdownPreview<cr>", desc = "run markdown-preview"},
 
     -- cd to nvim config directory
-    ["<leader>A"] = {":cd C:\\Users\\Mycroft\\AppData\\Local\\nvim<cr>", desc = "change to nvim config file"},
-    ["<leader>a"] = {":cd C:\\Users\\Mycroft\\AppData\\Local\\nvim\\lua\\user<cr>", desc = "change to nvim config file"},
+    ["<leader>A"] = {":cd C:\\Users\\Mycroft\\AppData\\Local\\nvim<cr>", desc = "change to astro nvim config dir"},
+    ["<leader>a"] = {":cd C:\\Users\\Mycroft\\AppData\\Local\\nvim\\lua\\user<cr>", desc = "change to user config dir"},
 
     ["<leader><enter>"] = {":nohlsearch<cr>", desc = "set no hightlight search"},
 
@@ -55,6 +55,17 @@ return {
     },
 
     -- something else
+    ["<leader>P"] = {
+      function ()
+        if(vim.bo.filetype == "markdown") then
+          local cword = vim.fn.expand('<cword>')
+          if(cword ~= '') then
+            vim.api.nvim_command("normal! o")
+          end
+          vim.cmd("call mdip#MarkdownClipboardImage()")
+        end
+      end,
+    desc = "paste image in md"}
   },
   t = {
     -- setting a mapping to false will disable it
