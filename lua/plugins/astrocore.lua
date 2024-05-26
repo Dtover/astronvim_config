@@ -83,8 +83,8 @@ return {
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
 
         -- movement
-        ["J"] = { "5gj", desc = "quick move down" },
-        ["K"] = { "5gk", desc = "quick move up" },
+        -- ["J"] = { "5gj", desc = "quick move down" },
+        -- ["K"] = { "5gk", desc = "quick move up" },
         ["H"] = { "^", desc = "move the cursor to start of the line" },
         ["L"] = { "$", desc = "move the cursor to end of the line" },
         ["gw"] = { "*", desc = "map to *" },
@@ -108,8 +108,8 @@ return {
       },
 
       v = {
-        ["J"] = { "5gj", desc = "quick move down" },
-        ["K"] = { "5gk", desc = "quick move up" },
+        -- ["J"] = { "5gj", desc = "quick move down" },
+        -- ["K"] = { "5gk", desc = "quick move up" },
         ["H"] = { "^", desc = "move the cursor to start of the line" },
         ["L"] = { "$", desc = "move the cursor to end of the line" },
       },

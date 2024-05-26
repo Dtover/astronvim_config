@@ -16,4 +16,5 @@ if not pcall(require, "lazy") then
 end
 
 require "lazy_setup"
+require "neovide"
 require "polish"
