@@ -24,6 +24,7 @@ return {
   -- customize alpha options
   {
     "goolord/alpha-nvim",
+    enabled = false,
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
@@ -118,5 +119,34 @@ return {
   {
     "Dtover/hexo-img-paste.vim",
     ft = "markdown",
+  },
+  {
+    dir = "~/.config/nvim/todoboard.nvim",
+    -- event = "VimEnter",
+    dependencies = {
+      { "MaximilianLloyd/ascii.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
+    },
+    config = function()
+      require("todoboard").setup {
+        header = require("ascii").art.text.neovim.sharp,
+        directories = {
+          "~/.config/nvim",
+          "~/Desktop/Code",
+        },
+        footer = {
+          "叹一帘疏雨，不如弹一曲抚心。",
+        },
+        opts = {
+          keys = {
+            -- add new keymap
+            { "n", "<Leader>h", function() require("todoboard").instance() end, { desc = "open todoboard" } },
+            -- disable exist keymap
+            { "n", "<Leader>H", disable = true },
+          },
+          redrew_on_resized = true,
+        },
+      }
+    end,
+    -- enabled = false,
   },
 }
