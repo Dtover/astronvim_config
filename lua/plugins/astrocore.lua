@@ -61,6 +61,13 @@ return {
           desc = "change to user config dir",
         },
 
+        ["<leader>A"] = {
+          function()
+            if vim.fn.has "unix" == 1 then vim.cmd("cd " .. vim.fn.expand "%:h") end
+          end,
+          desc = "change to user config dir",
+        },
+
         ["<leader><enter>"] = { ":nohlsearch<cr>", desc = "set no hightlight search" },
 
         -- navigate buffer tabs with `H` and `L`
